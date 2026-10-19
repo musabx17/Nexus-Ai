@@ -200,35 +200,6 @@ This verifies:
 
 ---
 
-## 📤 Uploading to GitHub
-
-Follow these steps to upload this repository to your GitHub profile:
-
-```powershell
-# 1. Initialize git in the repository root
-git init
-
-# 2. Stage all clean project files
-git add .
-
-# 3. Check status to verify secrets/caches are ignored
-git status
-
-# 4. Commit files
-git commit -m "feat: initial commit of Nexus AI secure document search portal"
-
-# 5. Rename branch to main
-git branch -M main
-
-# 6. Link to your GitHub repository (replace with your repo URL)
-git remote add origin https://github.com/<your-username>/Nexus-AI.git
-
-# 7. Push to GitHub
-git push -u origin main
-```
-
----
-
 ## 🔒 Security & Privacy Notice
 
 - All `.env` files and active credentials are removed from version control via `.gitignore`.
