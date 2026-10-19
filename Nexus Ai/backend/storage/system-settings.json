@@ -1,0 +1,10 @@
+{
+  "user_rate_limit_rpm": 60,
+  "max_upload_size_mb": 25,
+  "ai_creativity_temperature": 0.8,
+  "default_ai_model": "gemini-pro-latest",
+  "session_timeout_minutes": 60,
+  "strict_dlp_enforcement": true,
+  "system_maintenance_mode": true,
+  "maintenance_message": "NexusDocs workspace is currently undergoing scheduled maintenance."
+}

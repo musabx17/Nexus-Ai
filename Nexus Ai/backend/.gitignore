@@ -1,0 +1,26 @@
+# Environment and secrets
+.env
+.env*.local
+*.env
+
+# SQLite & Runtime Storage
+storage/users.db
+storage/app.db
+storage/*.db
+storage/*.sqlite
+storage/*.bin
+storage/*.tmp
+storage/__pycache__/
+
+# Python bytecode & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+
+# Testing & logs
+.pytest_cache/
+*.log

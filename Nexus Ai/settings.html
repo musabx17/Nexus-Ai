@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings | NexusDocs</title>
+  <script>
+    const savedTheme = localStorage.getItem('nexus_theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <div class="dashboard-wrapper">
+    <aside class="app-sidebar d-none d-lg-flex">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-icon"><i class="bi bi-shield-lock-fill"></i></div>
+        <div>
+          <h1>NexusDocs</h1><span>Secure Portal</span>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-label">MAIN MENU</div>
+        <a href="dashboard.html" class="sidebar-link"><i class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a>
+        <a href="documents.html" class="sidebar-link"><i class="bi bi-folder2-open"></i><span>Documents</span></a>
+        <a href="documents.html" class="sidebar-link"><i class="bi bi-cloud-arrow-up-fill"></i><span>Upload</span></a>
+        <a href="ai-chat.html" class="sidebar-link"><i class="bi bi-stars"></i><span>AI Chat</span></a>
+        <div class="sidebar-label sidebar-label-space">ACCOUNT</div>
+        <a href="profile.html" class="sidebar-link"><i class="bi bi-person-fill"></i><span>Profile</span></a>
+        <a href="settings.html" class="sidebar-link active"><i class="bi bi-gear-fill"></i><span>Settings</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-security">
+          <div class="sidebar-security-icon"><i class="bi bi-shield-check"></i></div>
+          <div><strong>Enterprise Shield</strong><small>Encrypted & Protected</small></div>
+        </div>
+        <a href="index.html" class="sidebar-link sidebar-logout"><i
+            class="bi bi-box-arrow-left"></i><span>Logout</span></a>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="dashboard-navbar">
+        <div class="d-flex align-items-center gap-2">
+          <button class="mobile-menu-btn d-lg-none" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#mobileSidebar" aria-controls="mobileSidebar">
+            <i class="bi bi-list"></i>
+          </button>
+          <div class="dashboard-search">
+            <i class="bi bi-search"></i>
+            <input type="text" placeholder="Search documents..." aria-label="Search documents" />
+          </div>
+        </div>
+        <div class="navbar-right">
+          <button class="theme-toggle-btn me-2" id="theme-toggle-btn" type="button" title="Toggle Dark/Light Mode"
+            aria-label="Toggle Dark/Light Mode">
+            <i class="bi bi-moon-stars-fill"></i>
+          </button>
+          <div class="navbar-user">
+            <div class="user-avatar">AN</div>
+            <div class="user-info"><strong>Account</strong><span>Loading...</span></div>
+          </div>
+        </div>
+      </header>
+
+      <section class="dashboard-content">
+        <div class="documents-page-header">
+          <div>
+            <div class="page-eyebrow"><i class="bi bi-gear-fill"></i> WORKSPACE CONFIGURATION</div>
+            <h2>Settings & Governance</h2>
+            <p>Manage account identity, theme aesthetics, password & security, AI engine, and governance policies.</p>
+          </div>
+        </div>
+
+        <!-- Alert banner for success / error notifications -->
+        <div id="settings-feedback-alert" class="alert d-none mb-4" role="alert"></div>
+
+        <div class="row g-4">
+          <!-- Left Column: Identity & AI Engine & Preferences -->
+          <div class="col-12 col-xl-7">
+            <!-- Account Identity & Display Name (Accessible to Normal Users, Auditors, & Admins) -->
+            <section class="dashboard-panel mb-4">
+              <div class="panel-heading">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="p-2 rounded-3 bg-primary text-white"><i class="bi bi-person-badge fs-5"></i></div>
+                  <div>
+                    <h3 class="mb-0">Account Profile & Display Name</h3>
+                    <span>Change how your name appears across the workspace and AI chat</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-3">
+                <form id="settings-identity-form">
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label class="form-label small text-muted" for="settings-username-display">Current
+                        Username</label>
+                      <input type="text" class="form-control bg-light" id="settings-username-display" readonly />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label small text-muted">Role Permissions</label>
+                      <div>
+                        <span class="badge text-bg-primary fs-6 py-2 px-3" id="settings-role-badge">User</span>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label" for="settings-display-name-input"><strong>Display Name</strong></label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-pencil-fill"></i></span>
+                        <input type="text" class="form-control" id="settings-display-name-input"
+                          placeholder="Enter your name" minlength="2" maxlength="80" required />
+                        <button class="btn btn-primary px-4" type="submit" id="btn-save-display-name">
+                          <i class="bi bi-check-lg"></i> Save Name
+                        </button>
+                      </div>
+                      <small class="text-muted d-block mt-1">
+                        You can change your display name anytime. It is displayed in your navbar, chat greetings, and
+                        audit trails.
+                      </small>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </section>
+
+            <!-- Change Username Section -->
+            <section class="dashboard-panel mb-4">
+              <div class="panel-heading">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="p-2 rounded-3 bg-secondary text-white"><i class="bi bi-at fs-5"></i></div>
+                  <div>
+                    <h3 class="mb-0">Change Username</h3>
+                    <span>Update your unique account login handle</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-3">
+                <form id="settings-change-username-form">
+                  <div class="mb-3">
+                    <label class="form-label" for="settings-new-username-input"><strong>New Username</strong></label>
+                    <div class="input-group">
+                      <span class="input-group-text">@</span>
+                      <input type="text" class="form-control" id="settings-new-username-input"
+                        placeholder="e.g. john_doe" minlength="3" maxlength="40" pattern="[a-zA-Z0-9_\.\-]+" required />
+                      <button class="btn btn-primary px-4" type="submit" id="btn-change-username">
+                        <i class="bi bi-person-check-fill me-1"></i> Update Username
+                      </button>
+                    </div>
+                    <small class="text-muted d-block mt-1">
+                      Use 3-40 alphanumeric characters. You will use this new username to log in.
+                    </small>
+                  </div>
+                </form>
+              </div>
+            </section>
+
+            <!-- Change Password Section -->
+            <section class="dashboard-panel mb-4">
+              <div class="panel-heading">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="p-2 rounded-3 bg-warning text-dark"><i class="bi bi-key-fill fs-5"></i></div>
+                  <div>
+                    <h3 class="mb-0">Change Password</h3>
+                    <span>Keep your workspace login protected with strong authentication</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-3">
+                <form id="settings-change-password-form">
+                  <div class="row g-3">
+                    <div class="col-12">
+                      <label class="form-label" for="settings-current-password"><strong>Current
+                          Password</strong></label>
+                      <input type="password" class="form-control" id="settings-current-password"
+                        placeholder="Enter your current password" required />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="settings-new-password"><strong>New Password</strong></label>
+                      <input type="password" class="form-control" id="settings-new-password"
+                        placeholder="Minimum 8 characters" minlength="8" required />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="settings-confirm-password"><strong>Confirm New
+                          Password</strong></label>
+                      <input type="password" class="form-control" id="settings-confirm-password"
+                        placeholder="Re-enter new password" minlength="8" required />
+                    </div>
+                    <div class="col-12">
+                      <button class="btn btn-outline-primary" type="submit" id="btn-change-password">
+                        <i class="bi bi-shield-lock-fill me-1"></i> Update Password
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </section>
+
+            <!-- Google Gemini Integration Card -->
+            <section class="dashboard-panel mb-4">
+              <div class="panel-heading">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="p-2 rounded-3 bg-primary text-white"><i class="bi bi-stars fs-5"></i></div>
+                  <div>
+                    <h3 class="mb-0">AI Knowledge Engine</h3>
+                    <span>Intelligent document reasoning and multi-hop synthesis</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-3">
+                <div class="p-3 bg-light rounded border mb-3">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="small text-secondary fw-semibold">
+                      <i class="bi bi-shield-lock"></i> Platform Intelligence
+                    </span>
+                    <span class="badge bg-success-subtle text-success" id="settings-gemini-status-badge">
+                      <i class="bi bi-check-circle-fill"></i> Operational
+                    </span>
+                  </div>
+                  <p class="small mb-0 text-muted">
+                    Enterprise AI models are securely provisioned and managed on the server. Your queries and document
+                    content remain isolated and private.
+                  </p>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label"><strong>Active Server Model</strong></label>
+                  <div class="p-3 bg-white rounded border d-flex align-items-center justify-content-between">
+                    <div>
+                      <strong class="d-block text-primary" id="settings-active-model-name">Gemini Flash
+                        (Latest)</strong>
+                      <small class="text-muted" id="settings-active-model-desc">High-speed multimodal reasoning
+                        engine</small>
+                    </div>
+                    <span class="badge bg-primary-subtle text-primary">Active</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Workspace & Theme Preferences -->
+            <section class="dashboard-panel">
+              <div class="panel-heading">
+                <div>
+                  <h3>Workspace & Theme Preferences</h3>
+                  <span>Theme aesthetics, interface layout, and citation preferences</span>
+                </div>
+              </div>
+
+              <form class="settings-form mt-3" data-settings-form>
+                <div class="form-check form-switch mb-3">
+                  <input class="form-check-input" id="settings-notifications" type="checkbox" />
+                  <label class="form-check-label" for="settings-notifications">
+                    <strong>Security event notifications</strong>
+                    <small class="d-block text-muted">Receive alerts for file uploads and compliance anomalies.</small>
+                  </label>
+                </div>
+                <div class="form-check form-switch mb-3">
+                  <input class="form-check-input" id="settings-compact" type="checkbox" />
+                  <label class="form-check-label" for="settings-compact">
+                    <strong>Compact table view</strong>
+                    <small class="d-block text-muted">Optimize documents table layout for higher information
+                      density.</small>
+                  </label>
+                </div>
+                <div class="form-check form-switch mb-4">
+                  <input class="form-check-input" id="settings-sources" type="checkbox" />
+                  <label class="form-check-label" for="settings-sources">
+                    <strong>Show Grounded Citations in Chat</strong>
+                    <small class="d-block text-muted">Display exact file citations and matched snippets under assistant
+                      messages.</small>
+                  </label>
+                </div>
+                <button class="btn btn-secondary" type="submit"><i class="bi bi-check2"></i> Save Preferences</button>
+              </form>
+            </section>
+          </div>
+
+          <!-- Right Column: Auditor Controls + Admin Controls + Security Architecture -->
+          <div class="col-12 col-xl-5">
+            <!-- Auditor Compliance & Integrity Hub (Visible to Auditors and Admins) -->
+            <section class="dashboard-panel mb-4" id="auditor-panel" data-auditor-controls>
+              <div class="panel-heading">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="p-2 rounded-3 bg-info text-dark"><i class="bi bi-clipboard2-check-fill fs-5"></i></div>
+                  <div>
+                    <h3 class="mb-0">Auditor Compliance Hub</h3>
+                    <span>Cryptographic verification & regulatory audit trails</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-3">
+                <p class="small text-muted mb-3">
+                  Auditor-exclusive utilities for independent compliance checks, storage tamper verification, and log
+                  exports.
+                </p>
+
+                <div class="d-grid gap-2 mb-3">
+                  <button class="btn btn-outline-primary btn-sm d-flex align-items-center justify-content-center gap-2"
+                    id="btn-run-integrity-check" type="button">
+                    <i class="bi bi-shield-check"></i> Run Cryptographic Integrity Audit
+                  </button>
+                </div>
+
+                <div id="auditor-integrity-results" class="p-3 bg-light rounded border small mb-3 d-none">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <strong>Integrity Check:</strong>
+                    <span class="badge text-bg-success" id="auditor-integrity-badge">Intact</span>
+                  </div>
+                  <div id="auditor-integrity-details" class="text-secondary"></div>
+                </div>
+
+                <div class="d-flex gap-2">
+                  <button class="btn btn-outline-secondary btn-sm flex-fill" id="btn-export-audit-json" type="button">
+                    <i class="bi bi-download me-1"></i> Export Log (JSON)
+                  </button>
+                  <button class="btn btn-outline-secondary btn-sm flex-fill" id="btn-export-audit-csv" type="button">
+                    <i class="bi bi-file-earmark-spreadsheet me-1"></i> Export Log (CSV)
+                  </button>
+                </div>
+              </div>
+            </section>
+
+            <!-- Administrator Governance & Policy Controls (Admin Only) -->
+            <section class="dashboard-panel mb-4" data-admin-only id="admin-governance-panel">
+              <div class="panel-heading">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="p-2 rounded-3 bg-danger text-white"><i class="bi bi-sliders fs-5"></i></div>
+                  <div>
+                    <h3 class="mb-0">Platform Governance Policies</h3>
+                    <span>Enterprise quotas, AI guardrails, & maintenance mode</span>
+                  </div>
+                </div>
+              </div>
+              <form id="admin-governance-form" class="mt-3">
+                <div class="mb-3">
+                  <label class="form-label small" for="admin-default-model"><strong>Default AI Model</strong></label>
+                  <select class="form-select form-select-sm" id="admin-default-model">
+                    <option value="gemini-flash-latest">Gemini Flash (Latest & Fast)</option>
+                    <option value="gemini-flash-lite-latest">Gemini Flash Lite (Low Latency)</option>
+                    <option value="gemini-3.5-flash">Gemini 3.5 Flash (Multimodal)</option>
+                    <option value="gemini-pro-latest">Gemini Pro (Deep Synthesis)</option>
+                    <option value="local-rag">Local Neural Search (Air-Gapped)</option>
+                  </select>
+                </div>
+
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <label class="form-label small mb-0" for="admin-temperature"><strong>AI Creativity
+                        (Temperature)</strong></label>
+                    <span class="small font-monospace text-primary" id="admin-temp-val">0.2</span>
+                  </div>
+                  <input type="range" class="form-range" id="admin-temperature" min="0.0" max="0.8" step="0.05"
+                    value="0.2" />
+                  <div class="d-flex justify-content-between text-muted" style="font-size: 11px;">
+                    <span>0.0 (Strictly Factual)</span>
+                    <span>0.8 (Creative)</span>
+                  </div>
+                </div>
+
+                <div class="row g-2 mb-3">
+                  <div class="col-6">
+                    <label class="form-label small" for="admin-rate-limit"><strong>Rate Limit (RPM)</strong></label>
+                    <select class="form-select form-select-sm" id="admin-rate-limit">
+                      <option value="15">15 rpm</option>
+                      <option value="30">30 rpm</option>
+                      <option value="45" selected>45 rpm</option>
+                      <option value="60">60 rpm</option>
+                      <option value="120">120 rpm</option>
+                    </select>
+                  </div>
+                  <div class="col-6">
+                    <label class="form-label small" for="admin-max-upload"><strong>Max Upload Size</strong></label>
+                    <select class="form-select form-select-sm" id="admin-max-upload">
+                      <option value="10">10 MB</option>
+                      <option value="25" selected>25 MB</option>
+                      <option value="50">50 MB</option>
+                      <option value="100">100 MB</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-check form-switch mb-3">
+                  <input class="form-check-input" id="admin-strict-dlp" type="checkbox" checked />
+                  <label class="form-check-label small" for="admin-strict-dlp">
+                    <strong>Strict DLP Redaction Enforcement</strong>
+                    <span class="d-block text-muted" style="font-size: 11px;">Redact all detected secrets and keys
+                      before AI processing.</span>
+                  </label>
+                </div>
+
+                <div class="form-check form-switch mb-3">
+                  <input class="form-check-input" id="admin-maintenance-mode" type="checkbox" />
+                  <label class="form-check-label small text-danger" for="admin-maintenance-mode">
+                    <strong>Platform Maintenance Mode</strong>
+                    <span class="d-block text-muted" style="font-size: 11px;">Show maintenance alert banner to regular
+                      users.</span>
+                  </label>
+                </div>
+
+                <button class="btn btn-danger btn-sm w-100" type="submit" id="btn-save-governance">
+                  <i class="bi bi-save me-1"></i> Save Platform Policies
+                </button>
+              </form>
+            </section>
+
+            <!-- Administrator User Management (Admin Only) -->
+            <section class="dashboard-panel mb-4" data-admin-only id="admin-users">
+              <div class="panel-heading">
+                <div>
+                  <h3 class="text-danger mb-0"><i class="bi bi-people-fill me-1"></i> User Governance</h3>
+                  <span>Role assignments and account access control</span>
+                </div>
+              </div>
+              <div class="mt-3">
+                <div class="list-group list-group-flush" data-admin-users></div>
+              </div>
+            </section>
+
+            <!-- Security Architecture Overview -->
+            <section class="dashboard-panel">
+              <div class="panel-heading">
+                <div>
+                  <h3>Security Architecture</h3>
+                  <span>Active cryptography and RBAC privileges</span>
+                </div>
+              </div>
+              <div class="mt-2" data-role-permissions></div>
+
+              <div class="mt-3 p-3 bg-light rounded border">
+                <div class="d-flex align-items-center gap-2 mb-2 text-success">
+                  <i class="bi bi-shield-fill-check fs-5"></i>
+                  <strong>Core Protections</strong>
+                </div>
+                <ul class="list-unstyled small mb-0 text-secondary">
+                  <li class="mb-1"><i class="bi bi-check2-circle text-success me-1"></i> AES-256 / Encrypted Storage at
+                    Rest</li>
+                  <li class="mb-1"><i class="bi bi-check2-circle text-success me-1"></i> Automatic Privacy Redaction
+                    (Keys, PII)</li>
+                  <li class="mb-1"><i class="bi bi-check2-circle text-success me-1"></i> Role-Based Access Isolation
+                    (RBAC)</li>
+                  <li><i class="bi bi-check2-circle text-success me-1"></i> HTTP-Only SameSite Secure Session</li>
+                </ul>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Mobile Offcanvas Sidebar -->
+  <div class="offcanvas offcanvas-start mobile-sidebar" tabindex="-1" id="mobileSidebar"
+    aria-labelledby="mobileSidebarLabel">
+    <div class="mobile-sidebar-header">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-icon"><i class="bi bi-shield-lock-fill"></i></div>
+        <div>
+          <h1 id="mobileSidebarLabel">NexusDocs</h1><span>Secure Portal</span>
+        </div>
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="mobile-sidebar-body">
+      <nav class="sidebar-nav">
+        <div class="sidebar-label">MAIN MENU</div>
+        <a href="dashboard.html" class="sidebar-link"><i class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a>
+        <a href="documents.html" class="sidebar-link"><i class="bi bi-folder2-open"></i><span>Documents</span></a>
+        <a href="documents.html" class="sidebar-link"><i class="bi bi-cloud-arrow-up-fill"></i><span>Upload</span></a>
+        <a href="ai-chat.html" class="sidebar-link"><i class="bi bi-stars"></i><span>AI Chat</span></a>
+        <div class="sidebar-label sidebar-label-space">ACCOUNT</div>
+        <a href="profile.html" class="sidebar-link"><i class="bi bi-person-fill"></i><span>Profile</span></a>
+        <a href="settings.html" class="sidebar-link active"><i class="bi bi-gear-fill"></i><span>Settings</span></a>
+      </nav>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js?v=20261010_05"></script>
+</body>
+
+</html>

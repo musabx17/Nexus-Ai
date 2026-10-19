@@ -1,0 +1,152 @@
+{
+  "5": {
+    "id": 5,
+    "filename": "Week _ 04_05 _ 06 _TransmissionMedia_.pdf",
+    "content_type": "application/pdf",
+    "size": 1371353,
+    "restricted": true,
+    "owner_id": 1,
+    "created_at": "2026-10-02T17:07:30.069233+00:00",
+    "storage_name": "996ed061cd144638a217eca4544a0a6d.bin"
+  },
+  "6": {
+    "id": 6,
+    "filename": "Week _07 _Connective-Devices_.pdf",
+    "content_type": "application/pdf",
+    "size": 1352066,
+    "restricted": true,
+    "owner_id": 1,
+    "created_at": "2026-10-03T04:18:27.024394+00:00",
+    "storage_name": "e207c598cca44c32a6322846d0d43660.bin"
+  },
+  "7": {
+    "id": 7,
+    "filename": "Automata theory1.pdf",
+    "content_type": "application/pdf",
+    "size": 689497,
+    "restricted": true,
+    "owner_id": 1,
+    "created_at": "2026-10-03T06:50:44.963286+00:00",
+    "storage_name": "ef807f185d7b4522a34d1a152045c789.bin"
+  },
+  "10": {
+    "id": 10,
+    "filename": "New PPTX Presentation.pdf",
+    "content_type": "application/pdf",
+    "size": 176044,
+    "restricted": true,
+    "owner_id": 1,
+    "created_at": "2026-10-04T19:32:26.264569+00:00",
+    "storage_name": "7084f93a991c4561960acafc05d2bb8c.bin"
+  },
+  "11": {
+    "id": 11,
+    "filename": "A.langauge Register.pdf",
+    "content_type": "application/pdf",
+    "size": 239956,
+    "restricted": false,
+    "owner_id": 3,
+    "created_at": "2026-10-04T19:34:55.534916+00:00",
+    "storage_name": "ccc11ef4fb5b400aa38a87ff73f3f67f.bin"
+  },
+  "13": {
+    "id": 13,
+    "filename": "Week _08 _Circuit-Packet Switching_.pdf",
+    "content_type": "application/pdf",
+    "size": 3558773,
+    "restricted": true,
+    "owner_id": 1,
+    "created_at": "2026-10-07T05:57:45.779142+00:00",
+    "storage_name": "3cd9bc0b143c451596d772b640a46340.bin"
+  },
+  "14": {
+    "id": 14,
+    "filename": "New PPTX Presentation.pdf",
+    "content_type": "application/pdf",
+    "size": 176044,
+    "restricted": true,
+    "owner_id": 1,
+    "created_at": "2026-10-07T06:08:10.641125+00:00",
+    "storage_name": "3f80f1ef97394cc590681512edcad356.bin"
+  },
+  "15": {
+    "id": 15,
+    "filename": "A.language Compiler_ Assembler_ Interpreter 8-9-26.pdf",
+    "content_type": "application/pdf",
+    "size": 15845,
+    "restricted": true,
+    "owner_id": 1,
+    "created_at": "2026-10-07T06:53:24.449901+00:00",
+    "storage_name": "732d4d3d47684501845cb3c908c6b643.bin"
+  },
+  "16": {
+    "id": 16,
+    "filename": "A.language Compiler_ Assembler_ Interpreter 8-9-26.pdf",
+    "content_type": "application/pdf",
+    "size": 15845,
+    "restricted": true,
+    "owner_id": 1,
+    "created_at": "2026-10-07T06:55:15.450438+00:00",
+    "storage_name": "abd379c43a754680a1bf2aff30c7be01.bin"
+  },
+  "17": {
+    "id": 17,
+    "filename": "Week _08 _Circuit-Packet Switching_.pdf",
+    "content_type": "application/pdf",
+    "size": 3558773,
+    "restricted": true,
+    "owner_id": 1,
+    "created_at": "2026-10-10T12:22:50.114311+00:00",
+    "storage_name": "c51b7b15770c490fa8b706f0333f9d80.bin"
+  },
+  "18": {
+    "id": 18,
+    "filename": "Cyber Security Tasks _ Instructions _ CodeAlpha M1.pdf",
+    "content_type": "application/pdf",
+    "size": 140398,
+    "restricted": true,
+    "owner_id": 1,
+    "created_at": "2026-10-10T13:33:36.670065+00:00",
+    "storage_name": "fc2391d33d1d483ab0a824f71d3e9656.bin"
+  },
+  "19": {
+    "id": 19,
+    "filename": "AlphaShield_detection_test.pdf",
+    "content_type": "application/pdf",
+    "size": 26997,
+    "restricted": true,
+    "owner_id": 1,
+    "created_at": "2026-10-10T13:47:44.446240+00:00",
+    "storage_name": "e3250515167b41598fb67d38e24b418d.bin"
+  },
+  "22": {
+    "id": 22,
+    "filename": "Cyber Security Tasks _ Instructions _ CodeAlpha M1.pdf",
+    "content_type": "application/pdf",
+    "size": 140398,
+    "restricted": true,
+    "owner_id": 1,
+    "created_at": "2026-10-10T14:19:17.807514+00:00",
+    "storage_name": "992a1b1a781e4355981be944e17fbf6b.bin"
+  },
+  "23": {
+    "id": 23,
+    "filename": "9-14-2026.pdf",
+    "content_type": "application/pdf",
+    "size": 430532,
+    "restricted": true,
+    "owner_id": 1,
+    "created_at": "2026-10-10T14:26:00.560679+00:00",
+    "storage_name": "3ccf295dcb2149afb7b9460a7d782b8e.bin"
+  },
+  "24": {
+    "id": 24,
+    "filename": "Register 7-9-2026.pdf",
+    "content_type": "application/pdf",
+    "size": 353366,
+    "restricted": false,
+    "owner_id": 111,
+    "created_at": "2026-10-10T14:28:49.766703+00:00",
+    "storage_name": "2950104bacdd445b9fc774be40469384.bin"
+  }
+}

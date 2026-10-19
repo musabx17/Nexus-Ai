@@ -1,0 +1,53 @@
+# ==============================================================================
+# Nexus AI - Root Git Ignore File
+# ==============================================================================
+
+# Environment variables & secrets (CRITICAL: Never commit API keys or JWT secrets)
+**/.env
+**/.env.*
+*.env
+!.env.example
+!**/.env.example
+
+# Python virtual environments
+.venv/
+**/.venv/
+venv/
+**/venv/
+env/
+**/env/
+ENV/
+**/ENV/
+
+# Python cache & compiled files
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local databases and encrypted uploaded files
+**/storage/users.db
+**/storage/app.db
+**/storage/*.db
+**/storage/*.sqlite
+**/storage/*.sqlite3
+**/storage/*.bin
+**/storage/*.tmp
+
+# OS & Editor generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Server & debug logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

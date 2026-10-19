@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documents | NexusDocs</title>
+    <script>
+      const savedTheme = localStorage.getItem('nexus_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="dashboard-wrapper">
+      <aside class="app-sidebar d-none d-lg-flex">
+        <div class="sidebar-brand">
+          <div class="sidebar-brand-icon">
+            <i class="bi bi-shield-lock-fill"></i>
+          </div>
+          <div>
+            <h1>NexusDocs</h1>
+            <span>Secure Workspace</span>
+          </div>
+        </div>
+        <nav class="sidebar-nav">
+          <div class="sidebar-label">MAIN MENU</div>
+          <a href="dashboard.html" class="sidebar-link">
+            <i class="bi bi-grid-1x2-fill"></i>
+            <span>Dashboard</span>
+          </a>
+          <a href="documents.html" class="sidebar-link active">
+            <i class="bi bi-folder2-open"></i>
+            <span>Documents</span>
+          </a>
+          <a href="documents.html" class="sidebar-link">
+            <i class="bi bi-cloud-arrow-up"></i>
+            <span>Upload</span>
+          </a>
+          <a href="ai-chat.html" class="sidebar-link">
+            <i class="bi bi-stars"></i>
+            <span>AI Chat</span>
+          </a>
+          <div class="sidebar-label sidebar-label-space">ACCOUNT</div>
+          <a href="profile.html" class="sidebar-link">
+            <i class="bi bi-person-circle"></i>
+            <span>Profile</span>
+          </a>
+          <a href="settings.html" class="sidebar-link">
+            <i class="bi bi-gear"></i>
+            <span>Settings</span>
+          </a>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="sidebar-security">
+            <div class="sidebar-security-icon">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <div>
+              <strong>Workspace Secure</strong>
+              <small>Protected & Encrypted</small>
+            </div>
+          </div>
+          <a href="index.html" class="sidebar-link sidebar-logout">
+            <i class="bi bi-box-arrow-left"></i>
+            <span>Logout</span>
+          </a>
+        </div>
+      </aside>
+      <div class="dashboard-main">
+        <header class="dashboard-navbar">
+          <div class="d-flex align-items-center gap-3">
+            <button
+              class="mobile-menu-btn d-lg-none"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#mobileSidebar"
+              aria-controls="mobileSidebar"
+            >
+              <i class="bi bi-list"></i>
+            </button>
+            <div class="dashboard-search">
+              <i class="bi bi-search"></i>
+              <input
+                type="text"
+                placeholder="Search documents..."
+                aria-label="Search documents"
+              />
+            </div>
+          </div>
+          <div class="navbar-right">
+            <button class="theme-toggle-btn me-2" id="theme-toggle-btn" type="button" title="Toggle Dark/Light Mode" aria-label="Toggle Dark/Light Mode">
+              <i class="bi bi-moon-stars-fill"></i>
+            </button>
+            <button class="navbar-icon-btn">
+              <i class="bi bi-bell"></i>
+              <span class="notification-dot"></span>
+            </button>
+            <div class="navbar-divider"></div>
+            <div class="navbar-user">
+              <div class="user-avatar">...</div>
+              <div class="user-info d-none d-sm-flex">
+                <strong>Account</strong>
+                <span>Loading...</span>
+              </div>
+              <i class="bi bi-chevron-down user-chevron d-none d-sm-block"></i>
+            </div>
+          </div>
+        </header>
+        <main class="dashboard-content">
+          <section class="documents-page-header">
+            <div>
+              <div class="page-eyebrow">
+                <i class="bi bi-folder2-open"></i>
+                DOCUMENT LIBRARY
+              </div>
+              <h2>Documents</h2>
+              <p>Manage, search and access your secure documents.</p>
+            </div>
+            <a href="#" class="primary-action-btn">
+              <i class="bi bi-cloud-arrow-up"></i>
+              Upload Document
+            </a>
+          </section>
+          <section class="documents-toolbar">
+            <div class="document-filters">
+              <button class="document-filter active">All</button>
+              <button class="document-filter">
+                <i class="bi bi-file-earmark-pdf"></i>
+                PDF
+              </button>
+              <button class="document-filter">
+                <i class="bi bi-file-earmark-word"></i>
+                Word
+              </button>
+              <button class="document-filter">
+                <i class="bi bi-file-earmark-excel"></i>
+                Excel
+              </button>
+              <button class="document-filter">
+                <i class="bi bi-file-earmark-slides"></i>
+                PPT
+              </button>
+              <button class="document-filter">Other</button>
+            </div>
+            <div class="document-tools">
+              <div class="documents-search">
+                <i class="bi bi-search"></i>
+                <input
+                  type="text"
+                  placeholder="Search in documents..."
+                  aria-label="Search in documents"
+                />
+              </div>
+              <div class="documents-sort">
+                <i class="bi bi-filter"></i>
+                <select aria-label="Sort documents">
+                  <option selected>Newest First</option>
+                  <option>Oldest First</option>
+                  <option>Name A-Z</option>
+                  <option>Name Z-A</option>
+                  <option>Largest First</option>
+                </select>
+              </div>
+            </div>
+          </section>
+          <section class="dashboard-panel documents-panel">
+            <div class="panel-heading">
+              <div>
+                <h3>All Documents</h3>
+                <span>Loading your authorized documents</span>
+              </div>
+              <span class="documents-count">Loading</span>
+            </div>
+            <div class="documents-table-wrapper d-none d-md-block">
+              <table class="documents-table">
+                <thead>
+                  <tr>
+                    <th>Document</th>
+                    <th>Type</th>
+                    <th>Size</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div class="mobile-document-list d-md-none">
+              <div class="documents-empty-state">
+                <i class="bi bi-folder2-open"></i>
+                <strong>Loading documents...</strong>
+                <span>Fetching your encrypted workspace files.</span>
+              </div>
+            </div>
+            <div class="documents-pagination">
+              <span class="pagination-info">
+                Loading documents
+              </span>
+              <div class="pagination-buttons">
+                <button class="pagination-btn disabled">
+                  <i class="bi bi-chevron-left"></i>
+                </button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <span class="pagination-dots"> ... </span>
+                <button class="pagination-btn">25</button>
+                <button class="pagination-btn">
+                  <i class="bi bi-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div
+      class="offcanvas offcanvas-start mobile-sidebar"
+      tabindex="-1"
+      id="mobileSidebar"
+      aria-labelledby="mobileSidebarLabel"
+    >
+      <div class="mobile-sidebar-header">
+        <div class="sidebar-brand">
+          <div class="sidebar-brand-icon">
+            <i class="bi bi-shield-lock-fill"></i>
+          </div>
+          <div>
+            <h1 id="mobileSidebarLabel">NexusDocs</h1>
+            <span> Secure Workspace </span>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="mobile-sidebar-body">
+        <nav class="sidebar-nav">
+          <div class="sidebar-label">MAIN MENU</div>
+          <a href="dashboard.html" class="sidebar-link">
+            <i class="bi bi-grid-1x2-fill"></i>
+            <span> Dashboard </span>
+          </a>
+          <a href="documents.html" class="sidebar-link active">
+            <i class="bi bi-folder2-open"></i>
+            <span> Documents </span>
+          </a>
+          <a href="#" class="sidebar-link">
+            <i class="bi bi-cloud-arrow-up"></i>
+            <span> Upload </span>
+          </a>
+          <a href="ai-chat.html" class="sidebar-link">
+            <i class="bi bi-stars"></i>
+            <span> AI Chat </span>
+          </a>
+          <div class="sidebar-label sidebar-label-space">ACCOUNT</div>
+          <a href="#" class="sidebar-link">
+            <i class="bi bi-person-circle"></i>
+            <span> Profile </span>
+          </a>
+          <a href="#" class="sidebar-link">
+            <i class="bi bi-gear"></i>
+            <span> Settings </span>
+          </a>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="sidebar-security">
+            <div class="sidebar-security-icon">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <div>
+              <strong> Workspace Secure </strong>
+              <small> Protected & Encrypted </small>
+            </div>
+          </div>
+          <a href="index.html" class="sidebar-link sidebar-logout">
+            <i class="bi bi-box-arrow-left"></i>
+            <span> Logout </span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js?v=20261010_05"></script>
+  </body>
+</html>

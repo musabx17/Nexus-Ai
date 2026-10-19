@@ -1,0 +1,11 @@
+{
+  "admin": {
+    "display_name": "Mohsib",
+    "email_notifications": false,
+    "compact_mode": true,
+    "ai_sources": true
+  },
+  "abdulkhaliqeu": {
+    "display_name": "Abdul Khalique"
+  }
+}
