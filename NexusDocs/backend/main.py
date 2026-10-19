@@ -1,4 +1,4 @@
-"""Nexus AI secure document search portal.
+"""NexusDocs secure document search portal.
 
 Run with: uvicorn main:app --reload --port 8000
 """

@@ -1,4 +1,4 @@
-# 🛡️ Nexus AI — Secure Enterprise Document Search & AI Assistant
+# 🛡️ NexusDocs — Secure Enterprise Document Search & AI Assistant
 
 [![Python](https://img.shields.io/badge/Python-3.14%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115%2B-009688.svg?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
@@ -7,7 +7,7 @@
 [![AI Engine](https://img.shields.io/badge/AI-Gemini%201.5%20%7C%20Local%20RAG-orange.svg)](https://ai.google.dev/)
 [![Bano Qabil](https://img.shields.io/badge/Program-Bano%20Qabil%20BootCamp-green.svg)](#acknowledgements)
 
-**Nexus AI** (NexusDocs) is an enterprise-grade, privacy-first internal document search portal and AI assistant. It empowers authenticated employees to upload confidential documents (PDFs and text files), run semantic vector search, analyze files for security leaks, and converse with an AI agent—while ensuring complete document encryption at rest and strict role-based access control (RBAC).
+**NexusDocs** is an enterprise-grade, privacy-first internal document search portal and AI assistant. It empowers authenticated employees to upload confidential documents (PDFs and text files), run semantic vector search, analyze files for security leaks, and converse with an AI agent—while ensuring complete document encryption at rest and strict role-based access control (RBAC).
 
 ---
 
@@ -53,7 +53,7 @@ uvicorn main:app --reload --port 8000
 
 In a second terminal:
 ```powershell
-# From Nexus Ai folder
+# From NexusDocs folder
 python -m http.server 5500
 ```
 Visit: **`http://localhost:5500/index.html`**

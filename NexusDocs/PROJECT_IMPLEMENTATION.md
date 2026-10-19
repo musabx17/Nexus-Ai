@@ -1,4 +1,4 @@
-# Nexus AI implementation and security report
+# NexusDocs implementation and security report
 
 ## Technology used
 
@@ -40,8 +40,8 @@
 1. Copy `backend/.env.example` to `backend/.env`.
 2. Generate a long random `SECRET_KEY` and a Fernet `ENCRYPTION_KEY`.
 3. Put the Gemini key only in `backend/.env` as `GEMINI_API_KEY`.
-4. Start the backend with `uvicorn main:app --reload --port 8000` from `Nexus Ai/backend`.
-5. Serve `Nexus Ai` on port 5500 and open `http://localhost:5500/index.html`.
+4. Start the backend with `uvicorn main:app --reload --port 8000` from `NexusDocs/backend`.
+5. Serve `NexusDocs` on port 5500 and open `http://localhost:5500/index.html`.
 
 Never commit `backend/.env`. If a key has ever been committed or shared, revoke it in Google AI Studio and create a new one.
 

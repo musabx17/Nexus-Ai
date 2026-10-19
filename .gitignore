@@ -1,5 +1,5 @@
 # ==============================================================================
-# Nexus AI - Root Git Ignore File
+# NexusDocs - Root Git Ignore File
 # ==============================================================================
 
 # Environment variables & secrets (CRITICAL: Never commit API keys or JWT secrets)

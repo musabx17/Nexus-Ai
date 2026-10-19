@@ -1,4 +1,4 @@
-# Nexus AI Quick Start Guide
+# NexusDocs Quick Start Guide
 
 ## What Has Been Done
 
@@ -16,7 +16,7 @@ Your AI-powered secure document search portal is **ready for local development a
 ### 1. **Start the Backend**
 
 ```powershell
-cd "Nexus Ai/backend"
+cd "NexusDocs/backend"
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
@@ -28,7 +28,7 @@ uvicorn main:app --reload --port 8000
 ### 2. **Start the Frontend (in a new terminal)**
 
 ```powershell
-cd "Nexus Ai"
+cd "NexusDocs"
 python -m http.server 5500
 ```
 
@@ -78,11 +78,11 @@ python -m http.server 5500
 
 | File | Purpose |
 |------|---------|
-| `Nexus Ai/backend/main.py` | FastAPI backend with auth, upload, encryption, AI endpoints |
-| `Nexus Ai/js/script.js` | Frontend logic for login, upload, chat, document management |
-| `Nexus Ai/ai-chat.html` | AI chat interface |
-| `Nexus Ai/index.html` | Login page |
-| `Nexus Ai/documents.html` | Document management & upload |
+| `NexusDocs/backend/main.py` | FastAPI backend with auth, upload, encryption, AI endpoints |
+| `NexusDocs/js/script.js` | Frontend logic for login, upload, chat, document management |
+| `NexusDocs/ai-chat.html` | AI chat interface |
+| `NexusDocs/index.html` | Login page |
+| `NexusDocs/documents.html` | Document management & upload |
 | `SECURITY_REVIEW.md` | Full security findings & fixes |
 | `TECH_STACK_AND_SECURITY.md` | Tech stack details & security controls |
 

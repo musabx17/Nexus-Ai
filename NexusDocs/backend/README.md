@@ -1,4 +1,4 @@
-# Nexus AI Backend
+# NexusDocs Backend
 
 ## Run locally
 

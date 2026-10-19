@@ -1,8 +1,8 @@
-# Nexus AI Project Stack
+# NexusDocs Project Stack
 
 ## Project Purpose
 
-Nexus AI is a secure document search portal. Authenticated users can upload documents, search authorized content, ask the AI questions, analyze documents for common security leaks, and manage their workspace according to their role.
+NexusDocs is a secure document search portal. Authenticated users can upload documents, search authorized content, ask the AI questions, analyze documents for common security leaks, and manage their workspace according to their role.
 
 ## Frontend
 
@@ -36,7 +36,7 @@ Main backend module:
 
 - `backend/main.py`
 
-Run the backend from the `Nexus Ai` directory:
+Run the backend from the `NexusDocs` directory:
 
 ```powershell
 c:/python314/python.exe -m uvicorn backend.main:app --reload

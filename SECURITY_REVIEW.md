@@ -1,4 +1,4 @@
-# Security Review – Nexus AI Secure Document Search
+# Security Review – NexusDocs Secure Document Search
 
 ## Executive Summary
 
@@ -194,7 +194,7 @@ A comprehensive security review identified **5 high-severity** and **multiple me
 ### Development
 
 ```powershell
-cd "Nexus Ai/backend"
+cd "NexusDocs/backend"
 Copy-Item .env.example .env
 # .env now has development defaults; keep GEMINI_API_KEY blank or replace with a test key
 python -m venv .venv

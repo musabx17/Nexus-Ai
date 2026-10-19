@@ -1,8 +1,8 @@
-# Nexus AI: Technology Stack & Security Implementation
+# NexusDocs: Technology Stack & Security Implementation
 
 ## Project Overview
 
-**Nexus AI** (NexusDocs) is a secure internal document search portal that allows authenticated employees to upload confidential documents (PDFs and text files), search them using AI, and ask questions about their content. All documents are encrypted at rest, and role-based access controls ensure employees only see authorized material.
+**NexusDocs** is a secure internal document search portal that allows authenticated employees to upload confidential documents (PDFs and text files), search them using AI, and ask questions about their content. All documents are encrypted at rest, and role-based access controls ensure employees only see authorized material.
 
 ---
 
@@ -265,7 +265,7 @@ curl -X POST http://localhost:8000/api/v1/documents/upload \
 
 ## Summary
 
-Nexus AI implements a **multi-layered security model** covering authentication, authorization, encryption, input validation, rate limiting, and sensitive-data handling. The application is **safe for local development and internal demonstration**. Production deployment requires identity provider integration, centralized logging, HTTPS enforcement, and PostgreSQL adoption.
+NexusDocs implements a **multi-layered security model** covering authentication, authorization, encryption, input validation, rate limiting, and sensitive-data handling. The application is **safe for local development and internal demonstration**. Production deployment requires identity provider integration, centralized logging, HTTPS enforcement, and PostgreSQL adoption.
 
 All findings from the security review have been remediated. For questions or to report security issues, contact the development team.
 

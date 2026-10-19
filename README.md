@@ -1,4 +1,4 @@
-# 🛡️ Nexus AI — Secure Enterprise Document Search & AI Assistant
+# 🛡️ NexusDocs — Secure Enterprise Document Search & AI Assistant
 
 [![Python](https://img.shields.io/badge/Python-3.14%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115%2B-009688.svg?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
@@ -7,7 +7,7 @@
 [![AI Engine](https://img.shields.io/badge/AI-Gemini%201.5%20%7C%20Local%20RAG-orange.svg)](https://ai.google.dev/)
 [![Bano Qabil](https://img.shields.io/badge/Program-Bano%20Qabil%20BootCamp-green.svg)](#acknowledgements)
 
-**Nexus AI** (NexusDocs) is an enterprise-grade, privacy-first internal document search portal and AI assistant. It empowers authenticated employees to upload confidential documents (PDFs and text files), run semantic vector search, analyze files for security leaks, and converse with an AI agent—while ensuring complete document encryption at rest and strict role-based access control (RBAC).
+**NexusDocs** is an enterprise-grade, privacy-first internal document search portal and AI assistant. It empowers authenticated employees to upload confidential documents (PDFs and text files), run semantic vector search, analyze files for security leaks, and converse with an AI agent—while ensuring complete document encryption at rest and strict role-based access control (RBAC).
 
 ---
 
@@ -65,8 +65,8 @@ flowchart TD
 ## 📁 Repository Structure
 
 ```text
-Nexus AI/
-├── Nexus Ai/
+NexusDocs/
+├── NexusDocs/
 │   ├── assets/                      # Application icons, graphics, and brand media
 │   ├── backend/
 │   │   ├── app/                     # Backend helper modules
@@ -110,7 +110,7 @@ Open PowerShell or terminal in the repository:
 
 ```powershell
 # Navigate to the backend directory
-cd "Nexus Ai/backend"
+cd "NexusDocs/backend"
 
 # Create a virtual environment
 python -m venv .venv
@@ -141,7 +141,7 @@ In a **separate terminal window**:
 
 ```powershell
 # Navigate to the frontend directory
-cd "Nexus Ai"
+cd "NexusDocs"
 
 # Start a local static HTTP server
 python -m http.server 5500
@@ -168,10 +168,10 @@ The local development environment includes seeded accounts for instant evaluatio
 
 ## 🤖 Optional: Configuring Google Gemini
 
-Nexus AI includes a fully functional offline local RAG agent. If you wish to enable Google Gemini:
+NexusDocs includes a fully functional offline local RAG agent. If you wish to enable Google Gemini:
 
 1. Obtain a free API key from [Google AI Studio](https://aistudio.google.com/).
-2. Open `Nexus Ai/backend/.env`.
+2. Open `NexusDocs/backend/.env`.
 3. Set your variables:
    ```env
    GEMINI_API_KEY=your_actual_api_key_here
@@ -187,7 +187,7 @@ Nexus AI includes a fully functional offline local RAG agent. If you wish to ena
 A complete automated end-to-end integration test is provided:
 
 ```powershell
-cd "Nexus Ai/backend"
+cd "NexusDocs/backend"
 python test_system.py
 ```
 
